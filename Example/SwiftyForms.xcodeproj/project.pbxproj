@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134771F91CF5A648002CFF6E /* SelectInputSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134771F81CF5A648002CFF6E /* SelectInputSpec.swift */; };
 		137243BC1CF481AE00096B75 /* InputSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137243BB1CF481AE00096B75 /* InputSpec.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		00EE14EFB171912CB0007747 /* SwiftyForms.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyForms.podspec; path = ../SwiftyForms.podspec; sourceTree = "<group>"; };
+		134771F81CF5A648002CFF6E /* SelectInputSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInputSpec.swift; sourceTree = "<group>"; };
 		137243BB1CF481AE00096B75 /* InputSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSpec.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftyForms_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyForms_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				137243BB1CF481AE00096B75 /* InputSpec.swift */,
+				134771F81CF5A648002CFF6E /* SelectInputSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				137243BC1CF481AE00096B75 /* InputSpec.swift in Sources */,
+				134771F91CF5A648002CFF6E /* SelectInputSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
