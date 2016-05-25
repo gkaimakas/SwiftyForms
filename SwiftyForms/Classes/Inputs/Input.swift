@@ -156,10 +156,26 @@ public class Input {
 		_submitted = true
 	}
 	
+	public func updateValue(value: String) -> Input {
+		return update(value: { value })
+	}
+	
+	public func updateHidden(hidden: Bool) -> Input {
+		return update(hidden: { hidden })
+	}
+	
+	public func updateEnabled(enabled: Bool) -> Input {
+		return update(enabled: { enabled })
+	}
+	
+	public func updateHint(hint: String?) -> Input {
+		return update(hint: { hint })
+	}
+	
 	public func update(value value: (() -> String)? = nil,
 	                         hidden: (() -> Bool)? = nil,
 	                         enabled: (() -> Bool)? = nil,
-	                         hint: (() -> String)? = nil
+	                         hint: (() -> String?)? = nil
 		) -> Input {
 		
 		if let value = value {
