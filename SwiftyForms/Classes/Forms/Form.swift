@@ -21,6 +21,12 @@ public class Form<T: FormDataSerializable> {
 		return T(data: self.data)
 	}
 	
+	public var numberOfSections: Int {
+		return _sections
+			.filter() { $0.hidden == false }
+			.count
+	}
+	
 	public init (name: String, sections: [Section] = []) {
 		self.name = name
 		self._sections = sections
