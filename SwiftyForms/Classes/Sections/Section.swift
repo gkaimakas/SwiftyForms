@@ -131,7 +131,7 @@ public class Section {
 		
 		input
 			.on(value: { input in
-				self._valueEvents
+				let _ = self._valueEvents
 					.map() { $0(self, input) }
 			})
 			.on(hidden: { input in
