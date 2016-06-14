@@ -18,11 +18,11 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		input = Input(name: "TestInput")
-			.withValidationRule(Validator.isTrue, message: "err_is_true")
+			.addValidationRule(Validator.isTrue, message: "err_is_true")
 			.on(value: { input in
 				print("state \(input.isValid) \(input.value)" )
 			})
-			.on(validate: { input in
+			.on(validated: { input in
 				print("validated: \(input.isValid)")
 			})
 			.on(hint: { hint in
@@ -31,12 +31,6 @@ class ViewController: UIViewController {
 		
 		input?.value = "hello"
 		input?.value = "there"
-		
-		input?
-			.update(hint: {"hello"})
-			.update(value: {"gkaimakas"})
-			.update(value: {"true"})
-			.validate()
 		
 		
     }

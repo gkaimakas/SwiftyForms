@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		134771F91CF5A648002CFF6E /* SelectInputSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134771F81CF5A648002CFF6E /* SelectInputSpec.swift */; };
 		137243BC1CF481AE00096B75 /* InputSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137243BB1CF481AE00096B75 /* InputSpec.swift */; };
+		3712CADB856A2D38DC31BE7B /* Pods_SwiftyForms_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994C1A17E76D92D0DE6F6339 /* Pods_SwiftyForms_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		65B968E8249FBE28CB65FA08 /* Pods_SwiftyForms_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654BB710BA9D98AE2E345D3E /* Pods_SwiftyForms_Example.framework */; };
-		B2F2CF5EBFA5BE900E75AA5A /* Pods_SwiftyForms_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20D167DE2D3196199BB23E7 /* Pods_SwiftyForms_Tests.framework */; };
+		BE2EBDAB464757C8CBE068AE /* Pods_SwiftyForms_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CBBA530369535EC1994352 /* Pods_SwiftyForms_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		00EE14EFB171912CB0007747 /* SwiftyForms.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyForms.podspec; path = ../SwiftyForms.podspec; sourceTree = "<group>"; };
+		0284F95B27BC3AE49EF506A9 /* Pods-SwiftyForms_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		134771F81CF5A648002CFF6E /* SelectInputSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInputSpec.swift; sourceTree = "<group>"; };
 		137243BB1CF481AE00096B75 /* InputSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputSpec.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftyForms_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyForms_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,14 +42,13 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SwiftyForms_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyForms_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		654BB710BA9D98AE2E345D3E /* Pods_SwiftyForms_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyForms_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C69E731CABE6E84F97D510C /* Pods-SwiftyForms_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6FF27CD5DB41F84A1326FE17 /* Pods-SwiftyForms_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C83E2FB7E6C2C94609C8D53 /* Pods-SwiftyForms_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7F8CC7077C95A0BAAA18F921 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		9CD47BF748984DDFAFE31527 /* Pods-SwiftyForms_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A2B793FD8ECF74BBC8AB5E50 /* Pods-SwiftyForms_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9375EE251EC84C800149D302 /* Pods-SwiftyForms_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		994C1A17E76D92D0DE6F6339 /* Pods_SwiftyForms_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyForms_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0CBBA530369535EC1994352 /* Pods_SwiftyForms_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyForms_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C16D99CFBD8CA0408B8308BC /* Pods-SwiftyForms_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyForms_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D849E4B85A4CDB18287A0568 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		E20D167DE2D3196199BB23E7 /* Pods_SwiftyForms_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyForms_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B968E8249FBE28CB65FA08 /* Pods_SwiftyForms_Example.framework in Frameworks */,
+				3712CADB856A2D38DC31BE7B /* Pods_SwiftyForms_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2F2CF5EBFA5BE900E75AA5A /* Pods_SwiftyForms_Tests.framework in Frameworks */,
+				BE2EBDAB464757C8CBE068AE /* Pods_SwiftyForms_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +78,8 @@
 				607FACD21AFB9204008FA782 /* Example for SwiftyForms */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				A3B108EF31E895D503B5C835 /* Pods */,
-				89813DB8A17E4D6D6E9BB87C /* Frameworks */,
+				9F9D15C19A975ADEC6C095A3 /* Pods */,
+				CC0BC93C8ECAB5C0F1803972 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,24 +142,24 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		89813DB8A17E4D6D6E9BB87C /* Frameworks */ = {
+		9F9D15C19A975ADEC6C095A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				654BB710BA9D98AE2E345D3E /* Pods_SwiftyForms_Example.framework */,
-				E20D167DE2D3196199BB23E7 /* Pods_SwiftyForms_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A3B108EF31E895D503B5C835 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6C69E731CABE6E84F97D510C /* Pods-SwiftyForms_Example.debug.xcconfig */,
-				9CD47BF748984DDFAFE31527 /* Pods-SwiftyForms_Example.release.xcconfig */,
-				6FF27CD5DB41F84A1326FE17 /* Pods-SwiftyForms_Tests.debug.xcconfig */,
-				A2B793FD8ECF74BBC8AB5E50 /* Pods-SwiftyForms_Tests.release.xcconfig */,
+				C16D99CFBD8CA0408B8308BC /* Pods-SwiftyForms_Example.debug.xcconfig */,
+				7C83E2FB7E6C2C94609C8D53 /* Pods-SwiftyForms_Example.release.xcconfig */,
+				0284F95B27BC3AE49EF506A9 /* Pods-SwiftyForms_Tests.debug.xcconfig */,
+				9375EE251EC84C800149D302 /* Pods-SwiftyForms_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC0BC93C8ECAB5C0F1803972 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				994C1A17E76D92D0DE6F6339 /* Pods_SwiftyForms_Example.framework */,
+				A0CBBA530369535EC1994352 /* Pods_SwiftyForms_Tests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,12 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyForms_Example" */;
 			buildPhases = (
-				271F8E95D59195A148EEA798 /* Check Pods Manifest.lock */,
+				BBDCBB3B671A163919D99D7C /* 📦 Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				47CB73D7747AAB32A8C9789C /* Embed Pods Frameworks */,
-				4EE9B952AD04F795F899D903 /* Copy Pods Resources */,
+				772A021CDF1B2D3A9ADDCD47 /* 📦 Embed Pods Frameworks */,
+				420590AB75C12C82F6656804 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,12 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SwiftyForms_Tests" */;
 			buildPhases = (
-				F792EE4FD6EE78B9064164AC /* Check Pods Manifest.lock */,
+				3135E4CE79A270ED8841BFAF /* 📦 Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				097B153D2357C414A3AF7D1E /* Embed Pods Frameworks */,
-				5CCAADF90D51A71059EDFD1E /* Copy Pods Resources */,
+				8A9A156870B89782B6B8C4F7 /* 📦 Embed Pods Frameworks */,
+				7BC739853DEC3F61E46ACF30 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,29 +265,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		097B153D2357C414A3AF7D1E /* Embed Pods Frameworks */ = {
+		3135E4CE79A270ED8841BFAF /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		271F8E95D59195A148EEA798 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,29 +280,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		47CB73D7747AAB32A8C9789C /* Embed Pods Frameworks */ = {
+		420590AB75C12C82F6656804 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4EE9B952AD04F795F899D903 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,14 +295,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5CCAADF90D51A71059EDFD1E /* Copy Pods Resources */ = {
+		772A021CDF1B2D3A9ADDCD47 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Example/Pods-SwiftyForms_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BC739853DEC3F61E46ACF30 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,14 +325,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F792EE4FD6EE78B9064164AC /* Check Pods Manifest.lock */ = {
+		8A9A156870B89782B6B8C4F7 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyForms_Tests/Pods-SwiftyForms_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBDCBB3B671A163919D99D7C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +490,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C69E731CABE6E84F97D510C /* Pods-SwiftyForms_Example.debug.xcconfig */;
+			baseConfigurationReference = C16D99CFBD8CA0408B8308BC /* Pods-SwiftyForms_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftyForms/Info.plist;
@@ -503,7 +503,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CD47BF748984DDFAFE31527 /* Pods-SwiftyForms_Example.release.xcconfig */;
+			baseConfigurationReference = 7C83E2FB7E6C2C94609C8D53 /* Pods-SwiftyForms_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftyForms/Info.plist;
@@ -516,7 +516,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FF27CD5DB41F84A1326FE17 /* Pods-SwiftyForms_Tests.debug.xcconfig */;
+			baseConfigurationReference = 0284F95B27BC3AE49EF506A9 /* Pods-SwiftyForms_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -535,7 +535,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2B793FD8ECF74BBC8AB5E50 /* Pods-SwiftyForms_Tests.release.xcconfig */;
+			baseConfigurationReference = 9375EE251EC84C800149D302 /* Pods-SwiftyForms_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

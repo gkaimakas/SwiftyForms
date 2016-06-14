@@ -120,8 +120,8 @@ public class Input {
 	}
 	
 	public func on(value value: InputEvent? = nil,
-	                       validate: InputEvent? = nil,
-	                       submit: InputEvent? = nil,
+	                       validated: InputEvent? = nil,
+	                       submitted: InputEvent? = nil,
 	                       enabled: InputEvent? = nil,
 	                       hidden: InputEvent? = nil,
 	                       hint: ((String?) -> Void)? = nil) -> Input{
@@ -130,11 +130,11 @@ public class Input {
 			_valueEvents.append(event)
 		}
 		
-		if let event = validate {
+		if let event = validated {
 			_validateEvents.append(event)
 		}
 		
-		if let event = submit {
+		if let event = submitted {
 			_submitEvents.append(event)
 		}
 		
@@ -152,50 +152,84 @@ public class Input {
 		return self
 	}
 	
+	/**
+	
+	Sets the value and notifies all subscribers
+	
+	- parameter value: String The value's new value
+	
+	- returns: Input The updated input
+	
+	*/
+	
+	public func setValue(value: String) -> Input {
+		self.value = value
+		return self
+	}
+	
+	/**
+	
+	Sets the hidden property and notifies all subscribers
+	
+	- parameter hidden: Bool The hidden property's new value
+	
+	- returns: Input The updated input
+	
+	*/
+	
+	public func setHidden(hidden: Bool) -> Input {
+		self.hidden = hidden
+		return self
+	}
+	
+	/**
+	
+	Sets the enabled property and notifies all subscribers
+	
+	- parameter enabled: Bool The enabled property's new value
+	
+	- returns: Input The updated input
+	
+	*/
+	
+	public func setEnabled(enabled: Bool) -> Input {
+		self.enabled = enabled
+		return self
+	}
+	
+	/**
+	
+	Sets the hint and notifies all subscribers
+	
+	- parameter hint: String The hint's new value
+	
+	- returns: Input The updated input
+	
+	*/
+	
+	public func setHint(hint: String?) -> Input {
+		self.hint = hint
+		return self
+	}
+	
+	/**
+	
+	Sets the submitted flag to true and notifies all subscribers. 
+	Normally the `submit()` will be called whenever the form is submitted. 
+	It should not be called on an input instance.
+	
+	*/
+	
 	public func submit() {
 		_submitted = true
 	}
 	
-	public func updateValue(value: String) -> Input {
-		return update(value: { value })
-	}
+	/**
 	
-	public func updateHidden(hidden: Bool) -> Input {
-		return update(hidden: { hidden })
-	}
+	Validates the input for its current value.
+	Notifies all subscribers for the validation event.
 	
-	public func updateEnabled(enabled: Bool) -> Input {
-		return update(enabled: { enabled })
-	}
-	
-	public func updateHint(hint: String?) -> Input {
-		return update(hint: { hint })
-	}
-	
-	public func update(value value: (() -> String)? = nil,
-	                         hidden: (() -> Bool)? = nil,
-	                         enabled: (() -> Bool)? = nil,
-	                         hint: (() -> String?)? = nil
-		) -> Input {
-		
-		if let value = value {
-			self.value = value()
-		}
-		
-		if let hint = hint {
-			self.hint = hint()
-		}
-		
-		if let hidden = hidden {
-			self.hidden = hidden()
-		}
-		
-		if let enabled = enabled {
-			self.enabled = enabled()
-		}
-		
-		return self
-	}
+	*/
 	
 	public func validate() -> Bool {
 		
@@ -206,7 +240,18 @@ public class Input {
 		return isValid
 	}
 	
-	public func withValidationRule(rule: Validation, message: String) -> Input {
+	/**
+	
+	Adds a validation rule.
+	
+	- parameter rule: Validation. The validation to apply on the input's value.
+	- parameter message: String. The error message the is returned when the validation fails.
+	
+	- returns: Input
+	
+	*/
+	
+	public func addValidationRule(rule: Validation, message: String) -> Input {
 		_validationRules.append((rule: rule, message: message))
 		return self
 	}

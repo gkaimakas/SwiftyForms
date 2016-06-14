@@ -29,7 +29,7 @@ class InputSpec: QuickSpec {
 				expect(input.hint).to(beNil())
 				
 				let inp = Input(name: "")
-					.update(hint: {"hello"})
+					.setHint("hello")
 				
 				expect(inp.hint).to(equal("hello"))
 			}
@@ -39,8 +39,8 @@ class InputSpec: QuickSpec {
 		describe("Errors") {
 			it("should return an array with errors if the occur") {
 				let input = Input(name: "input")
-					.withValidationRule(validator.required, message: "err_required")
-					.withValidationRule(validator.minLength(2), message: "err_min_length")
+					.addValidationRule(validator.required, message: "err_required")
+					.addValidationRule(validator.minLength(2), message: "err_min_length")
 				
 				expect(input.errors.count) == 2
 				expect(input.errors[0]) == "err_required"
@@ -79,7 +79,7 @@ class InputSpec: QuickSpec {
 						value = input.value
 					})
 					
-					input.update(value: {"hello"})
+					input.setValue("hello")
 					
 					expect(called).toEventually(equal(true))
 					expect(value).toEventually(equal("hello"))
@@ -96,7 +96,7 @@ class InputSpec: QuickSpec {
 						result = input.isDirty
 					})
 					
-					input.update(value: {"hello"})
+					input.setValue("hello")
 					
 					expect(result).toEventually(equal(true))
 					
@@ -109,12 +109,12 @@ class InputSpec: QuickSpec {
 					
 					var count = 0
 					
-					input.on(validate: { input in
+					input.on(validated: { input in
 						count = count + 1
 					})
 					
 					input.value = "first"
-					input.update(value: {"second"})
+					input.setValue("hello")
 					input.validate()
 					
 					expect(count) == 1
@@ -127,12 +127,12 @@ class InputSpec: QuickSpec {
 					
 					var count = 0
 					
-					input.on(submit: { input in
+					input.on(submitted: { input in
 						count = count + 1
 					})
 					
 					input.value = "first"
-					input.update(value: {"second"})
+					input.setValue("hello")
 					input.validate()
 					input.submit()
 					
@@ -154,10 +154,10 @@ class InputSpec: QuickSpec {
 						state = input.enabled
 					})
 					
-					input.enabled = true
-					input.update(enabled: { false })
+					input.enabled = false
+					input.setValue("hello")
 					
-					expect(count) == 2
+					expect(count) == 1
 					expect(state) == false
 					
 				}
@@ -177,7 +177,7 @@ class InputSpec: QuickSpec {
 					})
 					
 					input.hidden = true
-					input.update(hidden: { false })
+					input.setHidden(false)
 					
 					expect(count) == 2
 					expect(state) == false
@@ -189,7 +189,7 @@ class InputSpec: QuickSpec {
 		describe("Data") {
 			it("should return the data as a dictionary if the input is valid") {
 				let input = Input(name: "input")
-					.withValidationRule(validator.required, message: "error")
+					.addValidationRule(validator.required, message: "error")
 				
 				input.value = "test"
 				
@@ -208,10 +208,10 @@ class InputSpec: QuickSpec {
 			
 			it("should return nil if the input is invalid") {
 				let input = Input(name: "input")
-					.withValidationRule(validator.required, message: "error")
+					.addValidationRule(validator.required, message: "error")
 				
 				input.value = "test"
-				input.update(value: {""})
+				input.setValue("")
 				
 				expect(input.isValid).toEventually(equal(false))
 				expect(input.isDirty).toEventually(equal(true))
