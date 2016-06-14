@@ -8,10 +8,18 @@
 
 import Foundation
 
-public class Form {
+public class Form<T: FormDataSerializable> {
 	public let name: String
 	
 	private var _sections: [Section]
+	
+	public var data: [String: Any]? {
+		return nil
+	}
+	
+	public var dataObject: T? {
+		return T(data: self.data)
+	}
 	
 	public init (name: String, sections: [Section] = []) {
 		self.name = name
