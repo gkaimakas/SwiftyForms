@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'SwiftyForms_Example' do
-	pod 'SwiftyForms', :podspec => '../'
+	pod 'SwiftyForms', :path => '../'
 	
 	target 'SwiftyForms_Tests' do
 		inherit! :search_paths

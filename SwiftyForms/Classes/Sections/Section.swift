@@ -37,6 +37,10 @@ public class Section {
 		}
 	}
 	
+	public var isSubmitted: Bool {
+		return _submitted
+	}
+	
 	public var numberOfInputs: Int {
 		return _inputs
 			.filter() { $0.hidden == false }
@@ -44,6 +48,7 @@ public class Section {
 	}
 	
 	private var _valid: Bool = true
+	private var _submitted: Bool = false
 	
 	private var _inputs: [Input] = []
 	
@@ -51,6 +56,7 @@ public class Section {
 	private var _hiddenEvents: [(Section) -> Void] = []
 	private var _valueEvents: [(Section, Input) -> Void] = []
 	private var _validateEvents: [(Section) -> Void] = []
+	private var _submitEvents: [(Section) -> Void] = []
 	
 	private var _inputAddedEvents: [(Section, Input, Int) -> Void] = []
 	private var _inputRemovedEvents: [(Section, Input, Int) -> Void] = []
@@ -66,68 +72,7 @@ public class Section {
 		}
 	}
 	
-	public func inputAtIndex(index: Int) -> Input {
-		let visibleInputs = _inputs
-			.filter() { $0.hidden == false }
-		
-		return visibleInputs[index]
-	}
-	
-	public func on(value value: ((Section, Input)-> Void)? = nil,
-	                     validated: ((Section) -> Void)? = nil,
-	                     enabled: ((Section) -> Void)? = nil,
-	                     hidden: ((Section) -> Void)? = nil
-		) -> Section {
-		
-		if let event = value {
-			_valueEvents.append(event)
-		}
-		
-		if let event = validated {
-			_validateEvents.append(event)
-		}
-		
-		if let event = enabled {
-			_enabledEvents.append(event)
-		}
-		
-		if let event = hidden {
-			_enabledEvents.append(event)
-		}
-		
-		return self
-	}
-	
-	public func on(inputAdded inputAdded: ((Section, Input, Int) -> Void)? = nil,
-	                          inputHidden: ((Section, Input, Int) -> Void)? = nil,
-	                          inputRemoved: ((Section, Input, Int) -> Void)? = nil) -> Section {
-		
-		if let event = inputAdded {
-			_inputAddedEvents.append(event)
-		}
-		
-		if let event = inputHidden {
-			_inputHiddenEvents.append(event)
-		}
-		
-		if let event = inputRemoved {
-			_inputRemovedEvents.append(event)
-		}
-		
-		return self
-	}
-	
-	public func validate() -> Bool {
-		_validate()
-		
-		for event in _validateEvents {
-			event(self)
-		}
-		
-		return _valid
-	}
-	
-	public func addInput(input: Input) -> Section {
+	public func addInput(input: Input) -> Self {
 		
 		input
 			.on(value: { input in
@@ -137,7 +82,7 @@ public class Section {
 			.on(hidden: { input in
 				self._inputHiddenEvents
 					.iterate() { event in
-					}
+				}
 			})
 		
 		if input.hidden == true {
@@ -155,6 +100,82 @@ public class Section {
 		
 		
 		return self
+	}
+	
+	public func inputAtIndex(index: Int) -> Input {
+		let visibleInputs = _inputs
+			.filter() { $0.hidden == false }
+		
+		return visibleInputs[index]
+	}
+	
+	public func on(value value: ((Section, Input)-> Void)? = nil,
+	                     validated: ((Section) -> Void)? = nil,
+	                     enabled: ((Section) -> Void)? = nil,
+	                     hidden: ((Section) -> Void)? = nil,
+	                     submit: ((Section) -> Void)? = nil
+		) -> Self {
+		
+		if let event = value {
+			_valueEvents.append(event)
+		}
+		
+		if let event = validated {
+			_validateEvents.append(event)
+		}
+		
+		if let event = enabled {
+			_enabledEvents.append(event)
+		}
+		
+		if let event = hidden {
+			_enabledEvents.append(event)
+		}
+		
+		
+		if let event = submit {
+			_submitEvents.append(event)
+		}
+		
+		return self
+	}
+	
+	public func on(inputAdded inputAdded: ((Section, Input, Int) -> Void)? = nil,
+	                          inputHidden: ((Section, Input, Int) -> Void)? = nil,
+	                          inputRemoved: ((Section, Input, Int) -> Void)? = nil) -> Self {
+		
+		if let event = inputAdded {
+			_inputAddedEvents.append(event)
+		}
+		
+		if let event = inputHidden {
+			_inputHiddenEvents.append(event)
+		}
+		
+		if let event = inputRemoved {
+			_inputRemovedEvents.append(event)
+		}
+		
+		return self
+	}
+	
+	public func submit() {
+		let _ = _inputs
+			.map() { $0.submit() }
+		
+		for event in _submitEvents {
+			event(self)
+		}
+	}
+	
+	public func validate() -> Bool {
+		_validate()
+		
+		for event in _validateEvents {
+			event(self)
+		}
+		
+		return _valid
 	}
 	
 	private func _validate() {
