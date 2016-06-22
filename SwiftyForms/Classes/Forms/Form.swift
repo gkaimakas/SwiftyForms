@@ -70,7 +70,7 @@ public class Form<T: FormDataSerializable> {
 			_validateEvents.append(event)
 		}
 		
-		if let event = submit() {
+		if let event = submit {
 			_submitEvents.append(event)
 		}
 		
