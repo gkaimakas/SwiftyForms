@@ -124,7 +124,7 @@ public class Input {
 	                       submitted: InputEvent? = nil,
 	                       enabled: InputEvent? = nil,
 	                       hidden: InputEvent? = nil,
-	                       hint: ((String?) -> Void)? = nil) -> Input{
+	                       hint: ((String?) -> Void)? = nil) -> Self{
 		
 		if let event = value {
 			_valueEvents.append(event)
@@ -162,7 +162,7 @@ public class Input {
 	
 	*/
 	
-	public func setValue(value: String) -> Input {
+	public func setValue(value: String) -> Self {
 		self.value = value
 		return self
 	}
@@ -177,7 +177,7 @@ public class Input {
 	
 	*/
 	
-	public func setHidden(hidden: Bool) -> Input {
+	public func setHidden(hidden: Bool) -> Self {
 		self.hidden = hidden
 		return self
 	}
@@ -192,7 +192,7 @@ public class Input {
 	
 	*/
 	
-	public func setEnabled(enabled: Bool) -> Input {
+	public func setEnabled(enabled: Bool) -> Self {
 		self.enabled = enabled
 		return self
 	}
@@ -207,7 +207,7 @@ public class Input {
 	
 	*/
 	
-	public func setHint(hint: String?) -> Input {
+	public func setHint(hint: String?) -> Self {
 		self.hint = hint
 		return self
 	}
@@ -251,7 +251,7 @@ public class Input {
 	
 	*/
 	
-	public func addValidationRule(rule: Validation, message: String) -> Input {
+	public func addValidationRule(rule: Validation, message: String) -> Self {
 		_validationRules.append((rule: rule, message: message))
 		return self
 	}
