@@ -16,8 +16,6 @@ class InputSpec: QuickSpec {
 	override func spec() {
 		super.spec()
 		
-		let validator = Validator(validationMode: .Strict)
-		
 		describe("Init") {
 			it("should be initialized") {
 				let input = Input(name: "input")
@@ -39,8 +37,8 @@ class InputSpec: QuickSpec {
 		describe("Errors") {
 			it("should return an array with errors if the occur") {
 				let input = Input(name: "input")
-					.addValidationRule(validator.required, message: "err_required")
-					.addValidationRule(validator.minLength(2), message: "err_min_length")
+					.addValidationRule(Validator.required, message: "err_required")
+					.addValidationRule(Validator.minLength(2), message: "err_min_length")
 				
 				expect(input.errors.count) == 2
 				expect(input.errors[0]) == "err_required"
@@ -189,7 +187,7 @@ class InputSpec: QuickSpec {
 		describe("Data") {
 			it("should return the data as a dictionary if the input is valid") {
 				let input = Input(name: "input")
-					.addValidationRule(validator.required, message: "error")
+					.addValidationRule(Validator.required, message: "error")
 				
 				input.value = "test"
 				
@@ -208,7 +206,7 @@ class InputSpec: QuickSpec {
 			
 			it("should return nil if the input is invalid") {
 				let input = Input(name: "input")
-					.addValidationRule(validator.required, message: "error")
+					.addValidationRule(Validator.required, message: "error")
 				
 				input.value = "test"
 				input.setValue("")

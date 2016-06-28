@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Form<T: FormDataSerializable> {
+public class Form {
 	public let name: String
 	
 	private var _sections: [Section]
@@ -23,7 +23,7 @@ public class Form<T: FormDataSerializable> {
 			}
 	}
 	
-	public var dataObject: T? {
+	public func toObject<T: FormDataSerializable>(type: T.Type) -> T? {
 		return T(data: self.data)
 	}
 	
