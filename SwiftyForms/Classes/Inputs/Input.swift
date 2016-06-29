@@ -10,7 +10,7 @@ import Foundation
 import SwiftValidators
 
 public typealias InputEvent = (Input) -> Void
-private typealias ValidationRule = (rule: Validation, message: String)
+internal typealias ValidationRule = (rule: Validation, message: String)
 
 public class Input {
 	public let name: String
@@ -83,14 +83,15 @@ public class Input {
 	private var _hiddenEvents: [InputEvent] = []
 	private var _hintEvents: [(String?)->Void] = []
 	private var _enabledEvents: [InputEvent] = []
-	private var _validationRules: [ValidationRule] = []
+	internal var _validationRules: [ValidationRule] = []
 	private var _previousValue: String? = nil
-	private var _dirty: Bool = false
+	
+	internal var _dirty: Bool = false
 	private let _originalValue: String
 	private var _valid: Bool = true
 	
 	
-	private var _submitted: Bool = false {
+	internal var _submitted: Bool = false {
 		didSet {
 			if _submitted == true {
 				for event: InputEvent in _submitEvents {
