@@ -12,12 +12,12 @@ public class SwitchInput: Input {
 	public static let OnValue = String(true)
 	public static let OffValue = String(false)
 	
-	public convenience init(name: String, value: Bool) {
-		self.init(name: name, value: value, enabled: true, hidden: true)
+	public convenience init(name: String) {
+		self.init(name: name, enabled: true, hidden: true)
 	}
 	
-	public init(name: String, value: Bool, enabled: Bool, hidden: Bool) {
-		super.init(name: name, value: String(value), enabled: enabled, hidden: hidden)
+	public override init(name: String, enabled: Bool, hidden: Bool) {
+		super.init(name: name, enabled: enabled, hidden: hidden)
 	}
 	
 	

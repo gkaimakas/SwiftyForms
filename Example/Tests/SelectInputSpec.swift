@@ -28,8 +28,8 @@ class SelectInputSpec: QuickSpec {
 					})
 				
 				select
-					.withOption(SelectInput.Option(description: "hello", value: "there"))
-					.withOption(SelectInput.Option(description: "one", value: "two"))
+					.addOption(SelectInput.Option(description: "hello", value: "there"))
+					.addOption(SelectInput.Option(description: "one", value: "two"))
 				
 				expect(count) == 2
 				
@@ -47,9 +47,9 @@ class SelectInputSpec: QuickSpec {
 					})
 				
 				select
-					.withOption(SelectInput.Option(description: "hello", value: "there"))
-					.withOption(SelectInput.Option(description: "one", value: "two"))
-					.withOption(SelectInput.Option(description: "three", value: "four"))
+					.addOption(SelectInput.Option(description: "hello", value: "there"))
+					.addOption(SelectInput.Option(description: "one", value: "two"))
+					.addOption(SelectInput.Option(description: "three", value: "four"))
 				
 				select.removeOptionAtIndex(1)
 				select.removeOptionAtIndex(0)
@@ -70,9 +70,9 @@ class SelectInputSpec: QuickSpec {
 					})
 				
 				select
-					.withOption(SelectInput.Option(description: "hello", value: "there"))
-					.withOption(SelectInput.Option(description: "one", value: "two"))
-					.withOption(SelectInput.Option(description: "three", value: "four"))
+					.addOption(SelectInput.Option(description: "hello", value: "there"))
+					.addOption(SelectInput.Option(description: "one", value: "two"))
+					.addOption(SelectInput.Option(description: "three", value: "four"))
 				
 				select.selectOptionAtIndex(0)
 				

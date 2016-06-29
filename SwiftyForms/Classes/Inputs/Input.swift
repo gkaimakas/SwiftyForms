@@ -101,13 +101,13 @@ public class Input {
 	}
 	
 	public convenience init(name: String, value: String) {
-		self.init(name: name, value: value, enabled: true, hidden: false)
+		self.init(name: name, enabled: true, hidden: false)
 	}
 	
-	public init(name: String, value: String = "", enabled: Bool = true, hidden: Bool = false) {
+	public init(name: String, enabled: Bool = true, hidden: Bool = false) {
 		self.name = name
 		self.enabled = enabled
-		self.value = value
+		self.value = ""
 		self.hidden = hidden
 		self._originalValue = value
 	}

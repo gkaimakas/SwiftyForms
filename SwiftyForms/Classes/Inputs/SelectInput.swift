@@ -23,14 +23,20 @@ public class SelectInput: Input {
 	private var _options: [Option] = []
 	private var _optionAddEvents: [(SelectInput, Option) -> Void] = []
 	private var _optionRemoveEvents: [(SelectInput, Option) -> Void] = []
-	private var _optionSelectEvents: [(SelectInput, Option) -> Void] = []
+	private var _optionSelectEvents: [(SelectInput, Option, Int) -> Void] = []
+	
+	private var _selectedOptionIndex: Int = 0
+	
+	public var selectedOptionIndex: Int {
+		return _selectedOptionIndex
+	}
 	
 	public var numberOfOptions: Int {
 		return _options.count
 	}
 	
 	public func on(add add: ((SelectInput, Option) -> Void)? = nil,
-	                   select: ((SelectInput, Option) -> Void)? = nil,
+	                   select: ((SelectInput, Option, Int) -> Void)? = nil,
 	                   remove: ((SelectInput, Option) -> Void)? = nil
 	                   ) -> SelectInput {
 		
@@ -62,16 +68,19 @@ public class SelectInput: Input {
 		}
 	}
 	
-	public func selectOptionAtIndex(index: Int) {
+	public func selectOptionAtIndex(index: Int) -> SelectInput {
 		let option = _options[index]
 		value = option.value
+		_selectedOptionIndex = index
 		
 		for event in _optionSelectEvents {
-			event(self, option)
+			event(self, option, index)
 		}
+		
+		return self
 	}
 	
-	public func withOption(option: Option) -> SelectInput {
+	public func addOption(option: Option) -> SelectInput {
 		
 		_options.append(option)
 		
@@ -80,5 +89,9 @@ public class SelectInput: Input {
 		}
 		
 		return self
+	}
+	
+	public func addOptionWithDescription(description: String, value: String) -> SelectInput {
+		return addOption(SelectInput.Option(description: description, value: value))
 	}
 }
