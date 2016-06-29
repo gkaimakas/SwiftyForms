@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SelectInput: Input {
+public class SelectInput: TextInput {
 	
 	public struct Option {
 		public let description: String
