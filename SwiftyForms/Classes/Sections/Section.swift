@@ -29,6 +29,16 @@ public class Section {
 		}
 	}
 	
+	public var errors: [String] {
+		var array: [String] = []
+		
+		for input in _inputs {
+			array.appendContentsOf(input.errors)
+		}
+		
+		return array
+	}
+	
 	public var hidden: Bool {
 		didSet {
 			for event in _hiddenEvents {
@@ -39,6 +49,12 @@ public class Section {
 	
 	public var isSubmitted: Bool {
 		return _submitted
+	}
+	
+	public var isValid: Bool {
+		_validate()
+		
+		return _valid
 	}
 	
 	public var numberOfInputs: Int {

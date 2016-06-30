@@ -23,8 +23,12 @@ public class Form {
 			}
 	}
 	
-	public func toObject<T: FormDataSerializable>(type: T.Type) -> T? {
-		return T(data: self.data)
+	public var errors: [String] {
+		var array:[String] = []
+		for section in _sections {
+			array.appendContentsOf(section.errors)
+		}
+		return array
 	}
 	
 	public var isSubmitted: Bool {
@@ -39,6 +43,10 @@ public class Form {
 		return _sections
 			.filter() { $0.hidden == false }
 			.count
+	}
+	
+	public func toObject<T: FormDataSerializable>(type: T.Type) -> T? {
+		return T(data: self.data)
 	}
 	
 	private var _valid = false
