@@ -31,7 +31,7 @@ public class Form {
 		return _submitted
 	}
 	
-	public var _isValid: Bool {
+	public var isValid: Bool {
 		return _valid
 	}
 	
