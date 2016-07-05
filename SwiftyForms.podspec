@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'SwiftyForms'
-	s.version          = '0.3.13'
+	s.version          = '0.3.14'
 	s.summary          = 'Swifty way to create forms in iOS'
 
 	s.description      = <<-DESC

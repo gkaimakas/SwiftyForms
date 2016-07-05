@@ -25,9 +25,9 @@ public class SelectInput: TextInput {
 	private var _optionRemoveEvents: [(SelectInput, Option) -> Void] = []
 	private var _optionSelectEvents: [(SelectInput, Option, Int) -> Void] = []
 	
-	private var _selectedOptionIndex: Int = 0
+	private var _selectedOptionIndex: Int? = nil
 	
-	public var selectedOptionIndex: Int {
+	public var selectedOptionIndex: Int? {
 		return _selectedOptionIndex
 	}
 	
