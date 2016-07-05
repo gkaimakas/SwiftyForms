@@ -11,10 +11,10 @@ import Foundation
 public class SelectInput: TextInput {
 	
 	public struct Option {
-		public let description: String
+		public let description: String?
 		public let value: String
 		
-		public init(description: String, value: String) {
+		public init(description: String?, value: String) {
 			self.description = description
 			self.value = value
 		}
@@ -59,6 +59,16 @@ public class SelectInput: TextInput {
 		return _options[index]
 	}
 	
+	/// Removes all options
+	
+	public func removeAllOptions() {
+		for (index, element) in _options.enumerate() {
+			self.removeOptionAtIndex(index)
+		}
+	}
+	
+	/// Removes the specified option at index
+	
 	public func removeOptionAtIndex(index: Int) {
 		let option = _options[index]
 		_options.removeAtIndex(index)
@@ -81,7 +91,6 @@ public class SelectInput: TextInput {
 	}
 	
 	public func addOption(option: Option) -> SelectInput {
-		
 		_options.append(option)
 		
 		for event in _optionAddEvents {
@@ -91,7 +100,7 @@ public class SelectInput: TextInput {
 		return self
 	}
 	
-	public func addOptionWithDescription(description: String, value: String) -> SelectInput {
+	public func addOptionWithDescription(description: String?, value: String) -> SelectInput {
 		return addOption(SelectInput.Option(description: description, value: value))
 	}
 }
