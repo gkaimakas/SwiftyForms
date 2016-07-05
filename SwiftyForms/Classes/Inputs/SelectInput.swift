@@ -62,8 +62,8 @@ public class SelectInput: TextInput {
 	/// Removes all options
 	
 	public func removeAllOptions() {
-		for (index, _) in _options.enumerate() {
-			self.removeOptionAtIndex(index)
+		for _ in _options {
+			self.removeOptionAtIndex(0)
 		}
 	}
 	
