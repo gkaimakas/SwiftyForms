@@ -84,13 +84,13 @@ open class Section {
 		self.hidden = false
 		
 		for input in inputs {
-			addInput(input)
+			let _ = addInput(input)
 		}
 	}
 	
 	open func addInput(_ input: Input) -> Self {
 		
-		input
+		let _ = input
 			.on(value: { input in
 				let _ = self._valueEvents
 					.map() { $0(self, input) }
