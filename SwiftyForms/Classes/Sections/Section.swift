@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class Section {
-	public let name: String
+open class Section {
+	open let name: String
 	
-	public var data: [String: Any] {
+	open var data: [String: Any] {
 		return _inputs
 			.map() { $0.data }
 			.filter() { $0 != nil }
@@ -21,7 +21,7 @@ public class Section {
 		}
 	}
 	
-	public var enabled: Bool {
+	open var enabled: Bool {
 		didSet {
 			for event in _enabledEvents {
 				event(self)
@@ -29,17 +29,17 @@ public class Section {
 		}
 	}
 	
-	public var errors: [String] {
+	open var errors: [String] {
 		var array: [String] = []
 		
 		for input in _inputs {
-			array.appendContentsOf(input.errors)
+			array.append(contentsOf: input.errors)
 		}
 		
 		return array
 	}
 	
-	public var hidden: Bool {
+	open var hidden: Bool {
 		didSet {
 			for event in _hiddenEvents {
 				event(self)
@@ -47,36 +47,36 @@ public class Section {
 		}
 	}
 	
-	public var isSubmitted: Bool {
+	open var isSubmitted: Bool {
 		return _submitted
 	}
 	
-	public var isValid: Bool {
+	open var isValid: Bool {
 		_validate()
 		
 		return _valid
 	}
 	
-	public var numberOfInputs: Int {
+	open var numberOfInputs: Int {
 		return _inputs
 			.filter() { $0.hidden == false }
 			.count
 	}
 	
-	private var _valid: Bool = true
-	private var _submitted: Bool = false
+	fileprivate var _valid: Bool = true
+	fileprivate var _submitted: Bool = false
 	
-	private var _inputs: [Input] = []
+	fileprivate var _inputs: [Input] = []
 	
-	private var _enabledEvents: [(Section) -> Void] = []
-	private var _hiddenEvents: [(Section) -> Void] = []
-	private var _valueEvents: [(Section, Input) -> Void] = []
-	private var _validateEvents: [(Section) -> Void] = []
-	private var _submitEvents: [(Section) -> Void] = []
+	fileprivate var _enabledEvents: [(Section) -> Void] = []
+	fileprivate var _hiddenEvents: [(Section) -> Void] = []
+	fileprivate var _valueEvents: [(Section, Input) -> Void] = []
+	fileprivate var _validateEvents: [(Section) -> Void] = []
+	fileprivate var _submitEvents: [(Section) -> Void] = []
 	
-	private var _inputAddedEvents: [(Section, Input, Int) -> Void] = []
-	private var _inputRemovedEvents: [(Section, Input, Int) -> Void] = []
-	private var _inputHiddenEvents: [(Section, Input, Int) -> Void] = []
+	fileprivate var _inputAddedEvents: [(Section, Input, Int) -> Void] = []
+	fileprivate var _inputRemovedEvents: [(Section, Input, Int) -> Void] = []
+	fileprivate var _inputHiddenEvents: [(Section, Input, Int) -> Void] = []
 	
 	public init(name: String, inputs: [Input] = []) {
 		self.name = name
@@ -88,7 +88,7 @@ public class Section {
 		}
 	}
 	
-	public func addInput(input: Input) -> Self {
+	open func addInput(_ input: Input) -> Self {
 		
 		input
 			.on(value: { input in
@@ -118,14 +118,14 @@ public class Section {
 		return self
 	}
 	
-	public func inputAtIndex(index: Int) -> Input {
+	open func inputAtIndex(_ index: Int) -> Input {
 		let visibleInputs = _inputs
 			.filter() { $0.hidden == false }
 		
 		return visibleInputs[index]
 	}
 	
-	public func on(value value: ((Section, Input)-> Void)? = nil,
+	open func on(value: ((Section, Input)-> Void)? = nil,
 	                     validated: ((Section) -> Void)? = nil,
 	                     enabled: ((Section) -> Void)? = nil,
 	                     hidden: ((Section) -> Void)? = nil,
@@ -156,7 +156,7 @@ public class Section {
 		return self
 	}
 	
-	public func on(inputAdded inputAdded: ((Section, Input, Int) -> Void)? = nil,
+	open func on(inputAdded: ((Section, Input, Int) -> Void)? = nil,
 	                          inputHidden: ((Section, Input, Int) -> Void)? = nil,
 	                          inputRemoved: ((Section, Input, Int) -> Void)? = nil) -> Self {
 		
@@ -175,7 +175,7 @@ public class Section {
 		return self
 	}
 	
-	public func submit() {
+	open func submit() {
 		let _ = _inputs
 			.map() { $0.submit() }
 		
@@ -184,7 +184,7 @@ public class Section {
 		}
 	}
 	
-	public func validate() -> Bool {
+	open func validate() -> Bool {
 		_validate()
 		
 		for event in _validateEvents {
@@ -194,7 +194,7 @@ public class Section {
 		return _valid
 	}
 	
-	private func _validate() {
+	fileprivate func _validate() {
 		_valid = _inputs
 			.map() { $0.validate() }
 			.reduce(true) { $0 && $1 }

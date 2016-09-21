@@ -10,17 +10,17 @@ import Foundation
 
 public typealias LocationInputEvent = (LocationInput) -> Void
 
-public class LocationInput: Input {
+open class LocationInput: Input {
 	
 	
-	public static let Latitude = "latitude"
-	public static let Longitude = "longitude"
+	open static let Latitude = "latitude"
+	open static let Longitude = "longitude"
 	
-	private var _previousLatitude: String? = nil
-	private var _previousLongitude: String? = nil
-	private var _locationEvents: [LocationInputEvent] = []
+	fileprivate var _previousLatitude: String? = nil
+	fileprivate var _previousLongitude: String? = nil
+	fileprivate var _locationEvents: [LocationInputEvent] = []
 	
-	override public var data: [String : Any]? {
+	override open var data: [String : Any]? {
 		if isValid == false {
 			return nil
 		}
@@ -31,11 +31,11 @@ public class LocationInput: Input {
 		]
 	}
 	
-	override public var isValid: Bool {
+	override open var isValid: Bool {
 		return _validate()
 	}
 	
-	public var latitude: String {
+	open var latitude: String {
 		willSet {
 			_previousLatitude = self.latitude
 		}
@@ -49,7 +49,7 @@ public class LocationInput: Input {
 		}
 	}
 	
-	public var longitude: String {
+	open var longitude: String {
 		willSet {
 			_previousLongitude = self.longitude
 		}
@@ -63,16 +63,16 @@ public class LocationInput: Input {
 		}
 	}
 	
-	public var previousLatitude: String? {
+	open var previousLatitude: String? {
 		return _previousLatitude
 	}
 	
-	public var previousLongitude: String? {
+	open var previousLongitude: String? {
 		return _previousLongitude
 	}
 	
-	public var attributeLatitude: String = LocationInput.Latitude
-	public var attributeLongitude: String = LocationInput.Longitude
+	open var attributeLatitude: String = LocationInput.Latitude
+	open var attributeLongitude: String = LocationInput.Longitude
 	
 	public convenience init(name: String) {
 		self.init(name: name, enabled: true, hidden: false)
@@ -85,23 +85,23 @@ public class LocationInput: Input {
 		super.init(name: name, enabled: enabled, hidden: hidden)
 	}
 	
-	public func on(location: LocationInputEvent? = nil) {
+	open func on(_ location: LocationInputEvent? = nil) {
 		if let event = location {
 			_locationEvents.append(event)
 		}
 	}
 	
-	public func setAttributeLatitude(name: String) -> LocationInput {
+	open func setAttributeLatitude(_ name: String) -> LocationInput {
 		attributeLatitude = name
 		return self
 	}
 	
-	public func setAttributeLongitude(name: String) -> LocationInput {
+	open func setAttributeLongitude(_ name: String) -> LocationInput {
 		attributeLongitude = name
 		return self
 	}
 	
-	private func _validate() -> Bool {
+	fileprivate func _validate() -> Bool {
 		let latitudeValidation = self._validationRules
 			.map() { $0.rule }
 			.map() { $0(latitude) }

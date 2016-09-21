@@ -9,6 +9,6 @@
 import Foundation
 import SwiftValidators
 
-public class EmailInput: TextInput {
+open class EmailInput: TextInput {
 	
 }

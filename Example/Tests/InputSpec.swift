@@ -37,8 +37,8 @@ class InputSpec: QuickSpec {
 		describe("Errors") {
 			it("should return an array with errors if the occur") {
 				let input = Input(name: "input")
-					.addValidationRule(Validator.required, message: "err_required")
-					.addValidationRule(Validator.minLength(2), message: "err_min_length")
+					.addValidationRule(Validators.required(), message: "err_required")
+					.addValidationRule(Validators.minLength(2), message: "err_min_length")
 				
 				expect(input.errors.count) == 2
 				expect(input.errors[0]) == "err_required"
@@ -187,7 +187,7 @@ class InputSpec: QuickSpec {
 		describe("Data") {
 			it("should return the data as a dictionary if the input is valid") {
 				let input = Input(name: "input")
-					.addValidationRule(Validator.required, message: "error")
+					.addValidationRule(Validators.required(), message: "error")
 				
 				input.value = "test"
 				
@@ -206,7 +206,7 @@ class InputSpec: QuickSpec {
 			
 			it("should return nil if the input is invalid") {
 				let input = Input(name: "input")
-					.addValidationRule(Validator.required, message: "error")
+					.addValidationRule(Validators.required(), message: "error")
 				
 				input.value = "test"
 				input.setValue("")

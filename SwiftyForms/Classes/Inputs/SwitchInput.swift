@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class SwitchInput: Input {
-	public static let OnValue = String(true)
-	public static let OffValue = String(false)
+open class SwitchInput: Input {
+	open static let OnValue = String(true)
+	open static let OffValue = String(false)
 	
 	public convenience init(name: String) {
 		self.init(name: name, enabled: true, hidden: true)
@@ -21,19 +21,19 @@ public class SwitchInput: Input {
 	}
 	
 	
-	public var isOn: Bool {
+	open var isOn: Bool {
 		return value == SwitchInput.OnValue
 	}
 	
-	public func on() {
+	open func on() {
 		self.value = SwitchInput.OnValue
 	}
 	
-	public func off() {
+	open func off() {
 		self.value = SwitchInput.OffValue
 	}
 	
-	public func toogle() {
+	open func toogle() {
 		self.value = (isOn) ? SwitchInput.OffValue : SwitchInput.OnValue
 	}
 }

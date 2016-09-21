@@ -9,7 +9,7 @@
 import Foundation
 
 extension Dictionary {
-	func mergeWith(dictionary: Dictionary) -> Dictionary {
+	func mergeWith(_ dictionary: Dictionary) -> Dictionary {
 		var mutableDict = self
 		for (key, value) in dictionary {
 			mutableDict[key] = value

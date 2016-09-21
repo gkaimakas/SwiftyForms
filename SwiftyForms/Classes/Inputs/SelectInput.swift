@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SelectInput: TextInput {
+open class SelectInput: TextInput {
 	
 	public struct Option {
 		public let description: String?
@@ -20,22 +20,22 @@ public class SelectInput: TextInput {
 		}
 	}
 	
-	private var _options: [Option] = []
-	private var _optionAddEvents: [(SelectInput, Option) -> Void] = []
-	private var _optionRemoveEvents: [(SelectInput, Option) -> Void] = []
-	private var _optionSelectEvents: [(SelectInput, Option, Int) -> Void] = []
+	fileprivate var _options: [Option] = []
+	fileprivate var _optionAddEvents: [(SelectInput, Option) -> Void] = []
+	fileprivate var _optionRemoveEvents: [(SelectInput, Option) -> Void] = []
+	fileprivate var _optionSelectEvents: [(SelectInput, Option, Int) -> Void] = []
 	
-	private var _selectedOptionIndex: Int? = nil
+	fileprivate var _selectedOptionIndex: Int? = nil
 	
-	public var selectedOptionIndex: Int? {
+	open var selectedOptionIndex: Int? {
 		return _selectedOptionIndex
 	}
 	
-	public var numberOfOptions: Int {
+	open var numberOfOptions: Int {
 		return _options.count
 	}
 	
-	public func on(add add: ((SelectInput, Option) -> Void)? = nil,
+	open func on(add: ((SelectInput, Option) -> Void)? = nil,
 	                   select: ((SelectInput, Option, Int) -> Void)? = nil,
 	                   remove: ((SelectInput, Option) -> Void)? = nil
 	                   ) -> SelectInput {
@@ -55,13 +55,13 @@ public class SelectInput: TextInput {
 		return self
 	}
 	
-	public func optionAtIndex(index: Int) -> Option {
+	open func optionAtIndex(_ index: Int) -> Option {
 		return _options[index]
 	}
 	
 	/// Removes all options
 	
-	public func removeAllOptions() {
+	open func removeAllOptions() {
 		for _ in _options {
 			self.removeOptionAtIndex(0)
 		}
@@ -69,16 +69,16 @@ public class SelectInput: TextInput {
 	
 	/// Removes the specified option at index
 	
-	public func removeOptionAtIndex(index: Int) {
+	open func removeOptionAtIndex(_ index: Int) {
 		let option = _options[index]
-		_options.removeAtIndex(index)
+		_options.remove(at: index)
 		
 		for event in _optionRemoveEvents {
 			event(self, option)
 		}
 	}
 	
-	public func selectOptionAtIndex(index: Int) -> SelectInput {
+	open func selectOptionAtIndex(_ index: Int) -> SelectInput {
 		let option = _options[index]
 		value = option.value
 		_selectedOptionIndex = index
@@ -90,7 +90,7 @@ public class SelectInput: TextInput {
 		return self
 	}
 	
-	public func addOption(option: Option) -> SelectInput {
+	open func addOption(_ option: Option) -> SelectInput {
 		_options.append(option)
 		
 		for event in _optionAddEvents {
@@ -100,7 +100,7 @@ public class SelectInput: TextInput {
 		return self
 	}
 	
-	public func addOptionWithDescription(description: String?, value: String) -> SelectInput {
+	open func addOptionWithDescription(_ description: String?, value: String) -> SelectInput {
 		return addOption(SelectInput.Option(description: description, value: value))
 	}
 }

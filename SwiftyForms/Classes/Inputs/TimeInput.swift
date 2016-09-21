@@ -9,10 +9,10 @@
 import Foundation
 import SwiftValidators
 
-public class TimeInput: TextInput {
-	public var timeFormat: String = "hh:mm"
+open class TimeInput: TextInput {
+	open var timeFormat: String = "hh:mm"
 	
-	public func setTimeFormat(format: String) -> TimeInput {
+	open func setTimeFormat(_ format: String) -> TimeInput {
 		timeFormat = format
 		return self
 	}

@@ -8,65 +8,65 @@
 
 import Foundation
 
-public class Form {
-	public let name: String
+open class Form {
+	open let name: String
 	
-	private var _sections: [Section]
+	fileprivate var _sections: [Section]
 	
-	public var data: [String: Any]? {
+	open var data: [String: Any]? {
 		return self._sections
 			.map() { $0.data }
 			.filter() { $0 != nil }
 			.map() { $0! }
 			.reduce([String: Any]()) {
-				return $0.0.mergeWith($0.1)
+				return $0.0?.mergeWith($0.1)
 			}
 	}
 	
-	public var errors: [String] {
+	open var errors: [String] {
 		var array:[String] = []
 		for section in _sections {
-			array.appendContentsOf(section.errors)
+			array.append(contentsOf: section.errors)
 		}
 		return array
 	}
 	
-	public var isSubmitted: Bool {
+	open var isSubmitted: Bool {
 		return _submitted
 	}
 	
-	public var isValid: Bool {
+	open var isValid: Bool {
 		return _valid
 	}
 	
-	public var numberOfSections: Int {
+	open var numberOfSections: Int {
 		return _sections
 			.filter() { $0.hidden == false }
 			.count
 	}
 	
-	public func toObject<T: FormDataSerializable>(type: T.Type) -> T? {
+	open func toObject<T: FormDataSerializable>(_ type: T.Type) -> T? {
 		return T(data: self.data)
 	}
 	
-	private var _valid = false
-	private var _submitted = false
+	fileprivate var _valid = false
+	fileprivate var _submitted = false
 	
-	private var _valueEvents: [(Form, Section, Input) -> Void] = []
-	private var _validateEvents: [(Form) -> Void] = []
-	private var _submitEvents: [(Form) -> Void] = []
+	fileprivate var _valueEvents: [(Form, Section, Input) -> Void] = []
+	fileprivate var _validateEvents: [(Form) -> Void] = []
+	fileprivate var _submitEvents: [(Form) -> Void] = []
 	
 	public init (name: String, sections: [Section] = []) {
 		self.name = name
 		self._sections = sections
 	}
 	
-	public func addSection(section: Section) -> Form {
+	open func addSection(_ section: Section) -> Form {
 		_sections.append(section)
 		return self
 	}
 	
-	public func on(value: ((Form, Section, Input) -> Void)? = nil,
+	open func on(_ value: ((Form, Section, Input) -> Void)? = nil,
 	               validate: ((Form) -> Void)? = nil,
 	               submit: ((Form) -> Void)? = nil) -> Self {
 		
@@ -86,14 +86,14 @@ public class Form {
 		
 	}
 	
-	public func sectionAtIndex(index: Int) -> Section {
+	open func sectionAtIndex(_ index: Int) -> Section {
 		let sections = _sections
 			.filter() { $0.hidden == false}
 		
 		return sections[index]
 	}
 	
-	public func submit() {
+	open func submit() {
 		let _ = _sections
 			.map() { $0.submit() }
 		
@@ -102,7 +102,7 @@ public class Form {
 		}
 	}
 	
-	public func validate() -> Bool {
+	open func validate() -> Bool {
 		_validate()
 		
 		for event in _validateEvents {
@@ -112,7 +112,7 @@ public class Form {
 		return _valid
 	}
 	
-	private func _validate() {
+	fileprivate func _validate() {
 		_valid = _sections
 			.map() { $0.validate() }
 			.reduce(true) { $0 && $1 }

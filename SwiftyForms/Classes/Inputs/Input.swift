@@ -10,12 +10,12 @@ import Foundation
 import SwiftValidators
 
 public typealias InputEvent = (Input) -> Void
-internal typealias ValidationRule = (rule: Validation, message: String)
+internal typealias ValidationRule = (rule: Validator, message: String)
 
-public class Input {
-	public let name: String
+open class Input {
+	open let name: String
 	
-	public var data: [String: Any]? {
+	open var data: [String: Any]? {
 		if isValid == false {
 			return nil
 		}
@@ -23,7 +23,7 @@ public class Input {
 		return  [name: value]
 	}
 	
-	public var enabled: Bool {
+	open var enabled: Bool {
 		didSet {
 			for event in _enabledEvents {
 				event(self)
@@ -31,7 +31,7 @@ public class Input {
 		}
 	}
 	
-	public var hidden: Bool {
+	open var hidden: Bool {
 		didSet {
 			for event in _hiddenEvents {
 				event(self)
@@ -39,7 +39,7 @@ public class Input {
 		}
 	}
 	
-	public var hint: String? = nil {
+	open var hint: String? = nil {
 		didSet {
 			for event in _hintEvents {
 				event(hint)
@@ -47,23 +47,23 @@ public class Input {
 		}
 	}
 	
-	public var isDirty: Bool {
+	open var isDirty: Bool {
 		return _dirty
 	}
 	
-	public var isSubmitted: Bool {
+	open var isSubmitted: Bool {
 		return _submitted
 	}
 	
-	public var isValid: Bool {
+	open var isValid: Bool {
 		return _validate()
 	}
 	
-	public var previousValue: String? {
+	open var previousValue: String? {
 		return _previousValue
 	}
 	
-	public var value: String {
+	open var value: String {
 		willSet {
 			_previousValue = value
 		}
@@ -77,18 +77,18 @@ public class Input {
 		}
 	}
 	
-	private var _valueEvents: [InputEvent] = []
-	private var _submitEvents: [InputEvent] = []
-	private var _validateEvents: [InputEvent] = []
-	private var _hiddenEvents: [InputEvent] = []
-	private var _hintEvents: [(String?)->Void] = []
-	private var _enabledEvents: [InputEvent] = []
+	fileprivate var _valueEvents: [InputEvent] = []
+	fileprivate var _submitEvents: [InputEvent] = []
+	fileprivate var _validateEvents: [InputEvent] = []
+	fileprivate var _hiddenEvents: [InputEvent] = []
+	fileprivate var _hintEvents: [(String?)->Void] = []
+	fileprivate var _enabledEvents: [InputEvent] = []
 	internal var _validationRules: [ValidationRule] = []
-	private var _previousValue: String? = nil
+	fileprivate var _previousValue: String? = nil
 	
 	internal var _dirty: Bool = false
-	private let _originalValue: String
-	private var _valid: Bool = true
+	fileprivate let _originalValue: String
+	fileprivate var _valid: Bool = true
 	
 	
 	internal var _submitted: Bool = false {
@@ -113,14 +113,14 @@ public class Input {
 		self._originalValue = value
 	}
 	
-	public var errors: [String] {
+	open var errors: [String] {
 		return _validationRules
 			.map() { ($0.rule(value), $0.message)}
 			.filter() { $0.0 == false }
 			.map() { $0.1 }
 	}
 	
-	public func on(value value: InputEvent? = nil,
+	open func on(value: InputEvent? = nil,
 	                       validated: InputEvent? = nil,
 	                       submitted: InputEvent? = nil,
 	                       enabled: InputEvent? = nil,
@@ -163,7 +163,7 @@ public class Input {
 	
 	*/
 	
-	public func setValue(value: String) -> Self {
+	open func setValue(_ value: String) -> Self {
 		self.value = value
 		return self
 	}
@@ -178,7 +178,7 @@ public class Input {
 	
 	*/
 	
-	public func setHidden(hidden: Bool) -> Self {
+	open func setHidden(_ hidden: Bool) -> Self {
 		self.hidden = hidden
 		return self
 	}
@@ -193,7 +193,7 @@ public class Input {
 	
 	*/
 	
-	public func setEnabled(enabled: Bool) -> Self {
+	open func setEnabled(_ enabled: Bool) -> Self {
 		self.enabled = enabled
 		return self
 	}
@@ -208,7 +208,7 @@ public class Input {
 	
 	*/
 	
-	public func setHint(hint: String?) -> Self {
+	open func setHint(_ hint: String?) -> Self {
 		self.hint = hint
 		return self
 	}
@@ -221,7 +221,7 @@ public class Input {
 	
 	*/
 	
-	public func submit() {
+	open func submit() {
 		_submitted = true
 	}
 	
@@ -232,7 +232,7 @@ public class Input {
 	
 	*/
 	
-	public func validate() -> Bool {
+	open func validate() -> Bool {
 		
 		for event in _validateEvents {
 			event(self)
@@ -252,12 +252,12 @@ public class Input {
 	
 	*/
 	
-	public func addValidationRule(rule: Validation, message: String) -> Self {
+	open func addValidationRule(_ rule: @escaping Validator, message: String) -> Self {
 		_validationRules.append((rule: rule, message: message))
 		return self
 	}
 	
-	private func _validate() -> Bool {
+	fileprivate func _validate() -> Bool {
 		return _validationRules
 			.map() { $0.rule }
 			.map() { $0(value) }

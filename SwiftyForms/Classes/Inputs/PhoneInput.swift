@@ -9,6 +9,6 @@
 import Foundation
 import SwiftValidators
 
-public class PhoneInput: TextInput {
+open class PhoneInput: TextInput {
 	
 }

@@ -9,12 +9,12 @@
 import Foundation
 import SwiftValidators
 
-public class DateInput: TextInput {
-	public var dateFormat: String = "dd-MM-yyyy"
+open class DateInput: TextInput {
+	open var dateFormat: String = "dd-MM-yyyy"
 	
 	/// Sets the format of the displayed date
 	
-	public func setDateFormat(format: String) -> DateInput {
+	open func setDateFormat(_ format: String) -> DateInput {
 		dateFormat = format
 		return self
 	}

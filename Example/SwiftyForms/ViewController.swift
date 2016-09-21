@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		input = Input(name: "TestInput")
-			.addValidationRule(Validator.isTrue, message: "err_is_true")
+			.addValidationRule(Validators.isTrue(), message: "err_is_true")
 			.on(value: { input in
 				print("state \(input.isValid) \(input.value)" )
 			})

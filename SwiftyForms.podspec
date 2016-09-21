@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'SwiftyForms'
-	s.version          = '0.3.14'
+	s.version          = '0.10.0'
 	s.summary          = 'Swifty way to create forms in iOS'
 
 	s.description      = <<-DESC
@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
                        DESC
 
 	s.homepage         = 'https://github.com/gkaimakas/SwiftyForms'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 	s.license          = { :type => 'MIT', :file => 'LICENSE' }
 	s.author           = { 'gkaimakas' => 'gkaimakas@gmail.com' }
 	s.source           = { :git => 'https://github.com/gkaimakas/SwiftyForms.git', :tag => s.version.to_s }
@@ -25,5 +24,5 @@ Pod::Spec.new do |s|
 
 	s.source_files = 'SwiftyForms/Classes/**/*'
 
-	s.dependency 'SwiftValidators', '~>3.0.0'
+	s.dependency 'SwiftValidators', '~>5.1.0'
 end
