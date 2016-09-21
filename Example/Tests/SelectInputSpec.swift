@@ -22,12 +22,12 @@ class SelectInputSpec: QuickSpec {
 				
 				var count = 0
 				
-				select
+				let _ = select
 					.on(add: { _ in
 						count = count + 1
 					})
 				
-				select
+				let _ = select
 					.addOption(SelectInput.Option(description: "hello", value: "there"))
 					.addOption(SelectInput.Option(description: "one", value: "two"))
 				
@@ -41,12 +41,12 @@ class SelectInputSpec: QuickSpec {
 				
 				var count = 0
 				
-				select
+				let _ = select
 					.on(remove: { _ in
 						count = count + 1
 					})
 				
-				select
+				let _ = select
 					.addOption(SelectInput.Option(description: "hello", value: "there"))
 					.addOption(SelectInput.Option(description: "one", value: "two"))
 					.addOption(SelectInput.Option(description: "three", value: "four"))
@@ -64,17 +64,17 @@ class SelectInputSpec: QuickSpec {
 				
 				var count = 0
 				
-				select
+				let _ = select
 					.on(select: { _ in
 						count = count + 1
 					})
 				
-				select
+				let _ = select
 					.addOption(SelectInput.Option(description: "hello", value: "there"))
 					.addOption(SelectInput.Option(description: "one", value: "two"))
 					.addOption(SelectInput.Option(description: "three", value: "four"))
 				
-				select.selectOptionAtIndex(0)
+				let _ = select.selectOptionAtIndex(0)
 				
 				expect(count) == 1
 				

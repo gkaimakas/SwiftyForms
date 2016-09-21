@@ -56,7 +56,7 @@ class InputSpec: QuickSpec {
 					var called = false
 					var value = ""
 					
-					input.on(value: { input in
+					let _ = input.on(value: { input in
 						called = true
 						value = input.value
 					})
@@ -72,12 +72,12 @@ class InputSpec: QuickSpec {
 					var called = false
 					var value = ""
 					
-					input.on(value: { input in
+					let _ = input.on(value: { input in
 						called = true
 						value = input.value
 					})
 					
-					input.setValue("hello")
+					let _ = input.setValue("hello")
 					
 					expect(called).toEventually(equal(true))
 					expect(value).toEventually(equal("hello"))
@@ -90,11 +90,11 @@ class InputSpec: QuickSpec {
 					
 					expect(input.isDirty) == false
 					
-					input.on(value: { input in
+					let _ = input.on(value: { input in
 						result = input.isDirty
 					})
 					
-					input.setValue("hello")
+					let _ = input.setValue("hello")
 					
 					expect(result).toEventually(equal(true))
 					
@@ -107,13 +107,13 @@ class InputSpec: QuickSpec {
 					
 					var count = 0
 					
-					input.on(validated: { input in
+					let _ = input.on(validated: { input in
 						count = count + 1
 					})
 					
 					input.value = "first"
-					input.setValue("hello")
-					input.validate()
+					let _ = input.setValue("hello")
+					let _ = input.validate()
 					
 					expect(count) == 1
 				}
@@ -125,13 +125,13 @@ class InputSpec: QuickSpec {
 					
 					var count = 0
 					
-					input.on(submitted: { input in
+					let _ = input.on(submitted: { input in
 						count = count + 1
 					})
 					
 					input.value = "first"
-					input.setValue("hello")
-					input.validate()
+					let _ = input.setValue("hello")
+					let _ = input.validate()
 					input.submit()
 					
 					expect(count) == 1
@@ -147,13 +147,13 @@ class InputSpec: QuickSpec {
 					var count = 0
 					var state = true
 					
-					input.on(enabled: { input in
+					let _ = input.on(enabled: { input in
 						count = count + 1
 						state = input.enabled
 					})
 					
 					input.enabled = false
-					input.setValue("hello")
+					let _ = input.setValue("hello")
 					
 					expect(count) == 1
 					expect(state) == false
@@ -169,13 +169,13 @@ class InputSpec: QuickSpec {
 					var count = 0
 					var state = true
 					
-					input.on(hidden: { input in
+					let _ = input.on(hidden: { input in
 						count = count + 1
 						state = input.hidden
 					})
 					
 					input.hidden = true
-					input.setHidden(false)
+					let _ = input.setHidden(false)
 					
 					expect(count) == 2
 					expect(state) == false
@@ -209,7 +209,7 @@ class InputSpec: QuickSpec {
 					.addValidationRule(Validators.required(), message: "error")
 				
 				input.value = "test"
-				input.setValue("")
+				let _ = input.setValue("")
 				
 				expect(input.isValid).toEventually(equal(false))
 				expect(input.isDirty).toEventually(equal(true))
