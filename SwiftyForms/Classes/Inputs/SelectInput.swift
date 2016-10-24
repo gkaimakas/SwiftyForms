@@ -34,11 +34,12 @@ open class SelectInput: TextInput {
 	open var numberOfOptions: Int {
 		return _options.count
 	}
-	
+
+	@discardableResult
 	open func on(add: ((SelectInput, Option) -> Void)? = nil,
 	                   select: ((SelectInput, Option, Int) -> Void)? = nil,
 	                   remove: ((SelectInput, Option) -> Void)? = nil
-	                   ) -> SelectInput {
+	                   ) -> Self {
 		
 		if let event = add {
 			_optionAddEvents.append(event)
@@ -77,8 +78,9 @@ open class SelectInput: TextInput {
 			event(self, option)
 		}
 	}
-	
-	open func selectOptionAtIndex(_ index: Int) -> SelectInput {
+
+	@discardableResult
+	open func selectOptionAtIndex(_ index: Int) -> Self {
 		let option = _options[index]
 		value = option.value
 		_selectedOptionIndex = index
@@ -89,8 +91,9 @@ open class SelectInput: TextInput {
 		
 		return self
 	}
-	
-	open func addOption(_ option: Option) -> SelectInput {
+
+	@discardableResult
+	open func addOption(_ option: Option) -> Self {
 		_options.append(option)
 		
 		for event in _optionAddEvents {
@@ -99,8 +102,9 @@ open class SelectInput: TextInput {
 		
 		return self
 	}
-	
-	open func addOptionWithDescription(_ description: String?, value: String) -> SelectInput {
+
+	@discardableResult
+	open func addOptionWithDescription(_ description: String?, value: String) -> Self {
 		return addOption(SelectInput.Option(description: description, value: value))
 	}
 }

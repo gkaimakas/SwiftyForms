@@ -11,8 +11,9 @@ import SwiftValidators
 
 open class TimeInput: TextInput {
 	open var timeFormat: String = "hh:mm"
-	
-	open func setTimeFormat(_ format: String) -> TimeInput {
+
+	@discardableResult
+	open func setTimeFormat(_ format: String) -> Self {
 		timeFormat = format
 		return self
 	}

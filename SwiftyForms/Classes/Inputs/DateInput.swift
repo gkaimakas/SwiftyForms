@@ -14,7 +14,7 @@ open class DateInput: TextInput {
 	
 	/// Sets the format of the displayed date
 	
-	open func setDateFormat(_ format: String) -> DateInput {
+	open func setDateFormat(_ format: String) -> Self {
 		dateFormat = format
 		return self
 	}

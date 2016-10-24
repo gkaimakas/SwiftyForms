@@ -119,7 +119,8 @@ open class Input {
 			.filter() { $0.0 == false }
 			.map() { $0.1 }
 	}
-	
+
+	@discardableResult
 	open func on(value: InputEvent? = nil,
 	                       validated: InputEvent? = nil,
 	                       submitted: InputEvent? = nil,
@@ -162,7 +163,8 @@ open class Input {
 	- returns: Input The updated input
 	
 	*/
-	
+
+	@discardableResult
 	open func setValue(_ value: String) -> Self {
 		self.value = value
 		return self
@@ -177,7 +179,8 @@ open class Input {
 	- returns: Input The updated input
 	
 	*/
-	
+
+	@discardableResult
 	open func setHidden(_ hidden: Bool) -> Self {
 		self.hidden = hidden
 		return self
@@ -192,7 +195,8 @@ open class Input {
 	- returns: Input The updated input
 	
 	*/
-	
+
+	@discardableResult
 	open func setEnabled(_ enabled: Bool) -> Self {
 		self.enabled = enabled
 		return self
@@ -207,7 +211,8 @@ open class Input {
 	- returns: Input The updated input
 	
 	*/
-	
+
+	@discardableResult
 	open func setHint(_ hint: String?) -> Self {
 		self.hint = hint
 		return self
@@ -251,7 +256,8 @@ open class Input {
 	- returns: Input
 	
 	*/
-	
+
+	@discardableResult
 	open func addValidationRule(_ rule: @escaping Validator, message: String) -> Self {
 		_validationRules.append((rule: rule, message: message))
 		return self

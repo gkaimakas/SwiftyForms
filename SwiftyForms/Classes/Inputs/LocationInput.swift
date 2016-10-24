@@ -91,12 +91,12 @@ open class LocationInput: Input {
 		}
 	}
 	
-	open func setAttributeLatitude(_ name: String) -> LocationInput {
+	open func setAttributeLatitude(_ name: String) -> Self {
 		attributeLatitude = name
 		return self
 	}
 	
-	open func setAttributeLongitude(_ name: String) -> LocationInput {
+	open func setAttributeLongitude(_ name: String) -> Self {
 		attributeLongitude = name
 		return self
 	}

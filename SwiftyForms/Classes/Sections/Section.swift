@@ -87,7 +87,8 @@ open class Section {
 			let _ = addInput(input)
 		}
 	}
-	
+
+	@discardableResult
 	open func addInput(_ input: Input) -> Self {
 		
 		let _ = input
@@ -117,14 +118,16 @@ open class Section {
 		
 		return self
 	}
-	
+
+	@discardableResult
 	open func inputAtIndex(_ index: Int) -> Input {
 		let visibleInputs = _inputs
 			.filter() { $0.hidden == false }
 		
 		return visibleInputs[index]
 	}
-	
+
+	@discardableResult
 	open func on(value: ((Section, Input)-> Void)? = nil,
 	                     validated: ((Section) -> Void)? = nil,
 	                     enabled: ((Section) -> Void)? = nil,
@@ -155,7 +158,8 @@ open class Section {
 		
 		return self
 	}
-	
+
+	@discardableResult
 	open func on(inputAdded: ((Section, Input, Int) -> Void)? = nil,
 	                          inputHidden: ((Section, Input, Int) -> Void)? = nil,
 	                          inputRemoved: ((Section, Input, Int) -> Void)? = nil) -> Self {

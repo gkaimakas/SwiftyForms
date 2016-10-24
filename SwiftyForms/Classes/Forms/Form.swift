@@ -60,12 +60,14 @@ open class Form {
 		self.name = name
 		self._sections = sections
 	}
-	
-	open func addSection(_ section: Section) -> Form {
+
+	@discardableResult
+	open func addSection(_ section: Section) -> Self {
 		_sections.append(section)
 		return self
 	}
-	
+
+	@discardableResult
 	open func on(_ value: ((Form, Section, Input) -> Void)? = nil,
 	               validate: ((Form) -> Void)? = nil,
 	               submit: ((Form) -> Void)? = nil) -> Self {
@@ -85,7 +87,7 @@ open class Form {
 		return self
 		
 	}
-	
+
 	open func sectionAtIndex(_ index: Int) -> Section {
 		let sections = _sections
 			.filter() { $0.hidden == false}
